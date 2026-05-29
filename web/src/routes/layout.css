@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+
+:root {
+    color: #e2e2e2;
+    background-color: #0a0a0a;
+    font-family: "Quicksand", sans-serif;
+}
+
+@theme {
+    --font-size-xs: 0.75rem;
+    --font-size-s: 0.875rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-xxl: 1.5rem;
+    --color-font: #e2e2e2;
+    --color-background: #131313;
+    --color-primary: #efbe4b;
+}
