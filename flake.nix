@@ -78,7 +78,7 @@
               wantedBy = [ "multi-user.target" ];
               after = [ "network.target" "postgresql.service" ];
               serviceConfig = {
-                ExecStart = "${server}/bin/civ6-server";
+                ExecStart = "${server}/bin/server";
                 Restart = "on-failure";
                 DynamicUser = true;
                 Environment = "DATABASE_URL=postgres://civ6@localhost/civ6?sslmode=disable";
