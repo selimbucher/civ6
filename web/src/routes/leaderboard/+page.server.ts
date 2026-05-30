@@ -1,6 +1,6 @@
 import postgres from 'postgres';
 
-const sql = postgres(process.env.DATABASE_URL!);
+const sql = postgres();
 
 export async function load() {
     const players = await sql`

@@ -93,7 +93,11 @@
                 Restart = "on-failure";
                 User = "civ6";
                 Group = "civ6";
-                Environment = "DATABASE_URL=postgres:///civ6?host=/run/postgresql";
+                Environment = [
+                  "PGHOST=/run/postgresql"
+                  "PGDATABASE=civ6"
+                  "PGUSER=civ6"
+                ];
               };
             };
 
@@ -108,7 +112,9 @@
                 Group = "civ6";
                 Environment = [
                   "PORT=3000"
-                  "DATABASE_URL=postgres:///civ6?host=/run/postgresql"
+                  "PGHOST=/run/postgresql"
+                  "PGDATABASE=civ6"
+                  "PGUSER=civ6"
                 ];
               };
             };
