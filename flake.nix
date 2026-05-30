@@ -25,7 +25,7 @@
           pnpmDeps = pkgs.fetchPnpmDeps {
             inherit (finalAttrs) pname version src;
             fetcherVersion = 3;
-            hash = "sha256-nCdlmYQt2/7yzzNns0TiJYwAith7bHm8U+CIH3jKY5Q=";
+            hash = "sha256-i9GYU9YkDWo2KhJGkK1HvgCRLs+m2wjA7a/TCUfw5p8=";
           };
 
           buildPhase = "pnpm run build";
@@ -54,6 +54,15 @@
           options.services.civ6.enable = lib.mkEnableOption "civ6.ch";
 
           config = lib.mkIf cfg.enable {
+            services.postgresql = {
+              enable = true;
+              ensureDatabases = [ "civ6" ];
+              ensureUsers = [{
+                name = "civ6";
+                ensureDBOwnership = true;
+              }];
+            };
+
             systemd.services.civ6-web = {
               description = "civ6.ch SvelteKit server";
               wantedBy = [ "multi-user.target" ];
