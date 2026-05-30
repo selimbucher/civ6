@@ -31,9 +31,18 @@
           buildPhase = "pnpm run build";
           installPhase = "cp -r build $out";
         });
+
+        server = pkgs.buildGoModule {
+          pname = "civ6-server";
+          version = "0.0.1";
+          src = ./.;
+          vendorHash = null;
+        };
+
       in
       {
         packages.web = web;
+        packages.server = server;
         packages.default = web;
 
         devShells.default = pkgs.mkShell {
@@ -50,6 +59,7 @@
           cfg = config.services.civ6;
           system = pkgs.stdenv.hostPlatform.system;
           web = self.packages.${system}.web;
+          server = self.packages.${system}.server;
         in {
           options.services.civ6.enable = lib.mkEnableOption "civ6.ch";
 
@@ -63,10 +73,22 @@
               }];
             };
 
+            systemd.services.civ6-server = {
+              description = "civ6.ch Go API server";
+              wantedBy = [ "multi-user.target" ];
+              after = [ "network.target" "postgresql.service" ];
+              serviceConfig = {
+                ExecStart = "${server}/bin/civ6-server";
+                Restart = "on-failure";
+                DynamicUser = true;
+                Environment = "DATABASE_URL=postgres://civ6@localhost/civ6?sslmode=disable";
+              };
+            };
+
             systemd.services.civ6-web = {
               description = "civ6.ch SvelteKit server";
               wantedBy = [ "multi-user.target" ];
-              after = [ "network.target" ];
+              after = [ "network.target" "civ6-server.service" ];
               serviceConfig = {
                 ExecStart = "${pkgs.nodejs}/bin/node ${web}/index.js";
                 Restart = "on-failure";

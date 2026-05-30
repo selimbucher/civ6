@@ -13,11 +13,11 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<nav class="flex w-full gap-8 justify-center p-4">
+<nav class="flex w-full gap-6 justify-center p-6">
 	{#each links as link}
-		<a href={link.href} class="relative text-xl hover:text-primary transition-colors duration-200 ease-in-out group">
+		<a href={link.href} class="relative text-m font-semibold tracking-wide hover:text-font-clear transition-colors duration-200 ease-in-out group">
 			{link.label}
-			<span class="absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in-out"></span>
+			<span class="absolute bottom-0 left-0 w-full h-px bg-font-clear scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-in-out"></span>
 		</a>
 	{/each}
 </nav>

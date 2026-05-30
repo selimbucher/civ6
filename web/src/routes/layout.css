@@ -1,27 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
 
 :root {
-    color: #e2e2e2;
-    background-color: hsl(0deg 0% 2.5%);
-    font-family: "Quicksand", sans-serif;
+    color: hsl(0deg 0% 88%);
+    background-color: hsl(0deg 0% 4%);
+    font-family: "Geist", sans-serif;
 }
 
 @theme {
-    --font-size-xs: 0.75rem;
-    --font-size-s: 0.875rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-xxl: 1.5rem;
-    --color-font: hsl(0deg 0% 80%);
-    --color-font-clear: #ffffff;
-    --color-background: hsl(0deg 0% 2.5%);
+    --color-font: hsl(0deg 0% 88%);
+    --color-font-clear: hsl(0deg 0% 100%);
+    --color-background: hsl(0deg 0% 4%);
     --color-primary: #ffdc8b;
-    --color-card: hsl(0deg 0% 4%);
-    --color-card-2: hsl(0deg 0% 7.5%);
-    --color-card-edge: #1b1b1b;
+    --color-card: hsl(0deg 0% 8%);
+    --color-card-2: hsl(0deg 0% 12%);
+    --color-card-3: hsl(0deg 0% 22%);
+    --color-card-edge: hsl(0deg 0% 14%);
+    --color-card-edge-2: hsl(0deg 0% 16%);
 }

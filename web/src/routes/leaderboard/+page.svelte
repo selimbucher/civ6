@@ -3,11 +3,11 @@
   let active = $state(tabs[0]);
 </script>
 <div class="m-12 p-6 bg-card border border-card-edge rounded-lg">
-    <div class="flex bg-card-2 rounded w-fit">
+    <div class="flex rounded w-fit gap-1">
     {#each tabs as tab}
         <button
         onclick={() => active = tab}
-        class="px-4 py-2 font-bold rounded  transition-colors duration-200 {active === tab ? 'bg-primary text-black' : 'text-font hover:text-primary'}"
+        class="px-4 py-2 font-bold rounded  transition-colors duration-200 {active === tab ? 'bg-primary text-black' : 'text-font hover:text-primary cursor-pointer hover:bg-card-2'}"
         >
         {tab}
         </button>
