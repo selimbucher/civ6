@@ -73,6 +73,12 @@
               }];
             };
 
+            users.users.civ6 = {
+              isSystemUser = true;
+              group = "civ6";
+            };
+            users.groups.civ6 = {};
+
             systemd.services.civ6-server = {
               description = "civ6.ch Go API server";
               wantedBy = [ "multi-user.target" ];
@@ -80,8 +86,9 @@
               serviceConfig = {
                 ExecStart = "${server}/bin/server";
                 Restart = "on-failure";
-                DynamicUser = true;
-                Environment = "DATABASE_URL=postgres://civ6@localhost/civ6?sslmode=disable";
+                User = "civ6";
+                Group = "civ6";
+                Environment = "DATABASE_URL=postgres:///civ6?host=/run/postgresql";
               };
             };
 
