@@ -6,7 +6,7 @@
 
 :root {
     color: #e2e2e2;
-    background-color: #0a0a0a;
+    background-color: hsl(0deg 0% 2.5%);
     font-family: "Quicksand", sans-serif;
 }
 
@@ -17,7 +17,11 @@
     --font-size-l: 1.125rem;
     --font-size-xl: 1.25rem;
     --font-size-xxl: 1.5rem;
-    --color-font: #e2e2e2;
-    --color-background: #131313;
-    --color-primary: #efbe4b;
+    --color-font: hsl(0deg 0% 80%);
+    --color-font-clear: #ffffff;
+    --color-background: hsl(0deg 0% 2.5%);
+    --color-primary: #ffdc8b;
+    --color-card: hsl(0deg 0% 4%);
+    --color-card-2: hsl(0deg 0% 7.5%);
+    --color-card-edge: #1b1b1b;
 }
