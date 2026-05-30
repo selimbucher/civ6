@@ -99,8 +99,12 @@
               serviceConfig = {
                 ExecStart = "${pkgs.nodejs}/bin/node ${web}/index.js";
                 Restart = "on-failure";
-                DynamicUser = true;
-                Environment = "PORT=3000";
+                User = "civ6";
+                Group = "civ6";
+                Environment = [
+                  "PORT=3000"
+                  "DATABASE_URL=postgres:///civ6?host=/run/postgresql"
+                ];
               };
             };
 
