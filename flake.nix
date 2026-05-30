@@ -97,8 +97,9 @@
               };
             };
 
-            services.caddy.virtualHosts."civ6.ch" = {
-              extraConfig = ''
+            services.caddy = {
+              enable = true;
+              virtualHosts."civ6.ch".extraConfig = ''
                 reverse_proxy localhost:3000
               '';
             };
